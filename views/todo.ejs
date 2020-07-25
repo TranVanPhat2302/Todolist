@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <header><%= title %></header>
+  <link rel="stylesheet" type="text/css"  href="../stylesheets/style.css" >
+  <script type="text/javascript" src="../javascripts/lib/jquery-3.3.1.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="container" class="header">
+    <form action="/todolist" method="POST">
+      <label for="tdate">Date</label><br><br>
+      <input id="fdate" type="date" name="fdate"><br><br><br><br>
+      <label for="tname">What you do</label><br><br>
+      <input type="text" id="fname" name="fname" placeholder="Add task"><br><br>
+      <input type="submit" value="Add" name="Addbtn"><br><br>
+
+      <% if (success === true) { %>
+      <!-- <script>
+        alert("Added Success")
+      </script> -->
+      <%} %>
+      
+    
+    </form>
+
+
+    <div>
+      <% if(items && items.length > 0 ) { %>
+    
+      <!-- Sử dụng giá trị từ router để khởi tạo vòng lặp for --> 
+        <ul>
+        <% for(var i = 1; i <= items.length; i ++) { %>
+            <li id = <%=items[i-1].ID %>> <a href="/todolist/deleteTodo/<%=items[i-1].ID %>"><span class="fa fa-trash" > <button type="submit"  ></button> </span> </a> <%= items[i-1].tddate.getDate() %>-<%= items[i-1].tddate.getMonth() %>-<%= items[i-1].tddate.getFullYear() %>  :    <%= items[i-1]['tdname'] %> </li>
+        <% } %>
+      </ul>
+    
+      <% } %>
+
+      
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../javascripts/script.js"></script>
+</body>
+
+</html>
