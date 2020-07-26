@@ -9,7 +9,7 @@ const controller = require('../controller/todo.controller');
 router.get('/',controller.getAll);
 
 //Gọi Function Insert
-router.post('/insertTodo', controller.insertNewTodo);
+router.post('/', controller.insertNewTodo)
 
 //Gọi Function Delete
 router.delete('/deleteTodo/:id', controller.deleteTodo);
