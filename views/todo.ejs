@@ -35,7 +35,13 @@
       <!-- Sử dụng giá trị từ router để khởi tạo vòng lặp for --> 
         <ul>
         <% for(var i = 1; i <= items.length; i ++) { %>
-            <li id = <%=items[i-1].ID %>> <a href="/todolist/deleteTodo/<%=items[i-1].ID %>"><span class="fa fa-trash" > <button type="submit"  ></button> </span> </a> <%= items[i-1].tddate.getDate() %>-<%= items[i-1].tddate.getMonth() %>-<%= items[i-1].tddate.getFullYear() %>  :    <%= items[i-1]['tdname'] %> </li>
+            <li id = <%=items[i-1].ID %>>
+               <a href="/todolist/deleteTodo/<%=items[i-1].ID %>">
+                <span class="fa fa-trash" > <button type="submit"  ></button> 
+                </span> 
+              </a> 
+              <%= items[i-1].tddate.getDate() %>-<%= items[i-1].tddate.getMonth() %>-<%= items[i-1].tddate.getFullYear() %>  :    <%= items[i-1]['tdname'] %> 
+            </li>
         <% } %>
       </ul>
     
