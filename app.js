@@ -30,10 +30,27 @@ app.use('/todolist', todoRouter);
 app.use('/api/todolist', apitodoroute);
 
 
+function handleDisconnect() {
+
 qb.connect((err)=>{
-  if(err) throw err;
+  if(err) 
+  // throw err;
+  console.log('error when connecting to db:', err);
+  setTimeout(handleDisconnect, 2000);
 })
 
+
+qb.on('error', function(err) {
+  console.log('db error', err);
+  if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+    handleDisconnect();                         // lost due to either server restart, or a
+  } else {                                      // connnection idle timeout (the wait_timeout
+    throw err;                                  // server variable configures this)
+  }
+});
+}
+
+handleDisconnect();
 //declare static directory:
 
 
