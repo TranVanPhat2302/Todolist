@@ -20,5 +20,5 @@ const configheroku = {
     database: 'heroku_3fcdee9ce19be88',
 };
 
-const qb = mysql.createConnection(config || configheroku);
+const qb = mysql.createConnection(config );
 module.exports = qb;
