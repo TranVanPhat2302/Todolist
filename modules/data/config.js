@@ -7,7 +7,7 @@ const config = {
     user: 'root',
     password: 'phat2302',
     database: 'tododb',
-    socketPath: '/var/run/mysqld/mysqld.sock'
+  
 };
 
 const qb = mysql.createConnection(config);
